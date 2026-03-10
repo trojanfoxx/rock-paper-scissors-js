@@ -74,6 +74,10 @@ img {
   font-weight: bold;
 }
 
+.result-card.hidden {
+  display: none;
+}
+
 .result-card.win {
   background-color: #d5ffd8;
   border: 2px solid #27ae60;
@@ -95,4 +99,28 @@ img {
 .result-image {
   width: 4.2rem;
   height: 4.2rem;
+}
+
+/* CHOICES SCREEN */
+.choices-screen {
+  display: flex;
+  justify-content: space-between;
+  background-color: #dddddd;
+  padding: 20px 40px;
+  width: 30%;
+  border-radius: 1rem;
+}
+
+.choices-screen-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
 }

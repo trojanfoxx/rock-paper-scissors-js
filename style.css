@@ -126,6 +126,11 @@ img {
   height: 8rem;
 }
 
+.player-choice,
+.computer-choice {
+  font-size: 2.3rem;
+}
+
 /* SCORE SCREEN */
 .score-screen {
   display: flex;

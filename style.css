@@ -160,3 +160,31 @@ img {
 .tie-title {
   color: #dda900;
 }
+
+/* RESET BUTTON */
+.reset-button {
+  background-color: transparent;
+  border-radius: 1rem;
+  padding: 20px 10px;
+  border: 1px solid #333;
+  width: 20%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
+}
+
+.reset-button:hover {
+  background-image: linear-gradient(135deg, #ffae00 0%, #6a0dad 100%);
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.6);
+  transform: scale(1.02);
+  color: #fff;
+}
+
+.reset-button:active {
+  transform: scale(0.92);
+  filter: brightness(0.8);
+  transition: transform 0.1s ease;
+}

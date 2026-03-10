@@ -24,10 +24,12 @@ A simple browser-based Rock Paper Scissors game built with JavaScript.
 
 ## 🔗 Live Demo
 
-[Play the game](link)
+[Play the game](https://trojanfoxx.github.io/rock-paper-scissors-js/)
 
 ## 📂 Repository Structure
 
+- img
 - index.html
-- style.css
+- README.md
 - script.js
+- style.css

@@ -63,7 +63,10 @@ img {
   font-weight: bold;
 }
 
-.result-card.hidden {
+.result-card.hidden,
+.choices-screen.hidden,
+.reset-button.hidden,
+.score-screen.hidden {
   display: none;
 }
 

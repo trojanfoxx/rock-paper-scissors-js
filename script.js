@@ -1,17 +1,29 @@
 let score = loadScore();
 
 const choices = ['rock', 'paper', 'scissors'];
-
+const titles = ['tie', 'win', 'lose'];
 const emojis = {
   rock: '✊',
   paper: '✋',
   scissors: '✌️',
 };
 
-const RESULT = {
-  TIE: 0,
-  WIN: 1,
-  LOSE: 2,
+const resultConfig = {
+  tie: {
+    message: 'Tie!',
+    icon: './img/tie.png',
+    score: 0,
+  },
+  win: {
+    message: 'You Win!',
+    icon: './img/win.png',
+    score: 1,
+  },
+  lose: {
+    message: 'You Lose',
+    icon: './img/lose.png',
+    score: 2,
+  },
 };
 
 const choicesScreen = document.querySelector('.choices-screen');
@@ -22,7 +34,9 @@ const choiceButtons = document.querySelectorAll('.button-choice');
 const playerChoiceEl = document.querySelector('.player-choice');
 const computerChoiceEl = document.querySelector('.computer-choice');
 
+const resultCard = document.querySelector('.result-card');
 const resultTitle = document.querySelector('.result-title');
+const resultImage = document.querySelector('.result-image');
 
 const tieCount = document.querySelector('.tie-count');
 const winCount = document.querySelector('.win-count');
@@ -50,15 +64,27 @@ function playGame(userChoice) {
   playerChoiceEl.textContent = emojis[userChoice];
   computerChoiceEl.textContent = emojis[computerChoice];
 
+  showBanner(result);
   updateScore(result);
   updateScoreUI();
   saveScore();
 }
 
+function showBanner(result) {
+  const resultBox = titles[result];
+  const config = resultConfig[resultBox];
+
+  resultCard.classList.remove('hidden', 'win', 'lose', 'tie');
+  resultCard.classList.add(resultBox);
+
+  resultTitle.textContent = config.message;
+  resultImage.src = config.icon;
+}
+
 function updateScore(result) {
-  if (result === RESULT.TIE) {
+  if (result === resultConfig.tie.score) {
     score.tie++;
-  } else if (result === RESULT.WIN) {
+  } else if (result === resultConfig.win.score) {
     score.win++;
   } else {
     score.lose++;
@@ -84,8 +110,10 @@ function initUI() {
     choicesScreen.classList.add('hidden');
     scoreScreen.classList.add('hidden');
     resetButton.classList.add('hidden');
+    resultCard.classList.add('hidden');
   } else {
     choicesScreen.classList.add('hidden');
+    resultCard.classList.add('hidden');
     updateScoreUI();
   }
 }

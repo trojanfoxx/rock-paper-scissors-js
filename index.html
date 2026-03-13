@@ -3,81 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple rock paper and scissors game" />
+    <meta name="author" content="Matheus Rossi" />
     <title>Rock Paper and Scissors</title>
 
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1 class="title-game">ROCK PAPER SCISSORS</h1>
+    <main class="game-container">
+      <h1 class="title-game">ROCK PAPER SCISSORS</h1>
 
-    <div class="choices">
-      <button data-choice="rock" class="button-choice" aria-label="rock-button">
-        ✊
-      </button>
-      <button
-        data-choice="paper"
-        class="button-choice"
-        aria-label="paper-button"
-      >
-        ✋
-      </button>
-      <button
-        data-choice="scissors"
-        class="button-choice"
-        aria-label="scissors-button"
-      >
-        ✌️
-      </button>
-    </div>
-
-    <hr />
-
-    <div class="result-card hidden">
-      <p class="result-title"></p>
-      <img class="result-image" src="" alt="" />
-    </div>
-
-    <div class="choices-screen">
-      <div class="choices-screen-profile">
-        <img
-          class="profile-picture"
-          src="./img/player-profile.jpg"
-          alt="player picture"
-        />
-        <h3>You</h3>
-        <p class="player-choice"></p>
+      <div class="choices">
+        <button
+          data-choice="rock"
+          class="button-choice"
+          aria-label="Choose rock"
+        >
+          ✊
+        </button>
+        <button
+          data-choice="paper"
+          class="button-choice"
+          aria-label="Choose paper"
+        >
+          ✋
+        </button>
+        <button
+          data-choice="scissors"
+          class="button-choice"
+          aria-label="Choose scissors"
+        >
+          ✌️
+        </button>
       </div>
 
-      <div class="choices-screen-profile">
-        <img
-          class="profile-picture"
-          src="./img/computer-profile.jpg"
-          alt="computer picture"
-        />
-        <h3>Computer</h3>
-        <p class="computer-choice"></p>
-      </div>
-    </div>
+      <hr />
 
-    <div class="score-screen">
-      <div class="score-match">
-        <p class="win-title">Win:</p>
-        <span class="win-count"></span>
+      <div class="result-card hidden">
+        <p class="result-title"></p>
+        <img class="result-image" src="" alt="" />
       </div>
 
-      <div class="score-match">
-        <p class="lose-title">Losses:</p>
-        <span class="lose-count"></span>
-      </div>
+      <section class="choices-screen">
+        <div class="choices-screen-profile">
+          <img
+            class="profile-picture"
+            src="./img/player-profile.jpg"
+            alt="player picture"
+          />
+          <h3>You</h3>
+          <p class="player-choice"></p>
+        </div>
 
-      <div class="score-match">
-        <p class="tie-title">Ties:</p>
-        <span class="tie-count"></span>
-      </div>
-    </div>
+        <div class="choices-screen-profile">
+          <img
+            class="profile-picture"
+            src="./img/computer-profile.jpg"
+            alt="computer picture"
+          />
+          <h3>Computer</h3>
+          <p class="computer-choice"></p>
+        </div>
+      </section>
 
-    <!-- TODO: Configurar botão para aparecer após primeiro número do score aparecer -->
-    <button class="reset-button">RESET SCORE</button>
+      <section class="score-screen">
+        <div class="score-match">
+          <p class="win-title">Win:</p>
+          <span class="win-count"></span>
+        </div>
+
+        <div class="score-match">
+          <p class="lose-title">Losses:</p>
+          <span class="lose-count"></span>
+        </div>
+
+        <div class="score-match">
+          <p class="tie-title">Ties:</p>
+          <span class="tie-count"></span>
+        </div>
+      </section>
+
+      <button class="reset-button">RESET SCORE</button>
+    </main>
 
     <script src="./script.js"></script>
   </body>

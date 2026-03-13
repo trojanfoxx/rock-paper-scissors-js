@@ -1,7 +1,7 @@
 let score = loadScore();
 
 const choices = ['rock', 'paper', 'scissors'];
-const titles = ['tie', 'win', 'lose'];
+const resultKeys = ['tie', 'win', 'lose'];
 const emojis = {
   rock: '✊',
   paper: '✋',
@@ -12,17 +12,17 @@ const resultConfig = {
   tie: {
     message: 'Tie!',
     icon: './img/tie.png',
-    score: 0,
+    alt: 'Tie result card',
   },
   win: {
     message: 'You Win!',
     icon: './img/win.png',
-    score: 1,
+    alt: 'Win result card',
   },
   lose: {
     message: 'You Lose',
     icon: './img/lose.png',
-    score: 2,
+    alt: 'Lose result card',
   },
 };
 
@@ -59,35 +59,40 @@ function playGame(userChoice) {
   const computerChoice = getComputerChoice();
   const result = getGameResult(userChoice, computerChoice);
 
-  showGameScreens();
-
   playerChoiceEl.textContent = emojis[userChoice];
   computerChoiceEl.textContent = emojis[computerChoice];
 
-  showBanner(result);
   updateScore(result);
-  updateScoreUI();
   saveScore();
+  showGameScreens();
+  showBanner(result);
+  updateScoreUI();
 }
 
 function showBanner(result) {
-  const resultBox = titles[result];
-  const config = resultConfig[resultBox];
+  const resultKey = resultKeys[result];
+  const config = resultConfig[resultKey];
 
-  resultCard.classList.remove('hidden', 'win', 'lose', 'tie');
-  resultCard.classList.add(resultBox);
+  resultCard.classList.remove('win', 'lose', 'tie');
+  resultCard.classList.remove('hidden');
+  resultCard.classList.add(resultKey);
 
   resultTitle.textContent = config.message;
   resultImage.src = config.icon;
+  resultImage.alt = config.alt;
 }
 
 function updateScore(result) {
-  if (result === resultConfig.tie.score) {
-    score.tie++;
-  } else if (result === resultConfig.win.score) {
-    score.win++;
-  } else {
-    score.lose++;
+  switch (result) {
+    case 0:
+      score.tie++;
+      break;
+    case 1:
+      score.win++;
+      break;
+    case 2:
+      score.lose++;
+      break;
   }
 }
 
@@ -132,6 +137,8 @@ function showGameScreens() {
 
 function resetScore() {
   score = { tie: 0, win: 0, lose: 0 };
+  playerChoiceEl.textContent = '';
+  computerChoiceEl.textContent = '';
   saveScore();
   initUI();
 }
